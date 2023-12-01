@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Increment App</title>
+</head>
+<body>
+
+<script>
+class NumberApp {
+    constructor() {
+        this.number = 0;
+        this.initialize();
+    }
+
+    initialize() {
+        this.createButton();
+        this.updateDisplay();
+    }
+
+    createButton() {
+        this.button = document.createElement('button');
+        this.button.textContent = 'Increment';
+        this.button.addEventListener('click', () => this.incrementNumber());
+        document.body.appendChild(this.button);
+    }
+
+    incrementNumber() {
+        this.number++;
+        this.updateDisplay();
+    }
+
+    updateDisplay() {
+        if (!this.display) {
+            this.display = document.createElement('div');
+            document.body.appendChild(this.display);
+        }
+        this.display.textContent = `Current Number: ${this.number}`;
+    }
+}
+
+// Instantiate the NumberApp class to start the app
+const app = new NumberApp();
+</script>
+
+</body>
+</html>
